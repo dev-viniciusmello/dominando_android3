@@ -8,7 +8,15 @@ import org.koin.standalone.StandAloneContext.stopKoin
 class HotelApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        startKoin(this, listOf(androidModule))
+        
+        //Usando a dependência do site disponível: https://insert-koin.io/docs/quickstart/kotlin/ 
+        startKoin {
+            printLogger()
+            modules(androidModule)
+        }
+        
+        // startKoin(this, listOf(androidModule))
+    
     }
     override fun onTerminate() {
         super.onTerminate()
